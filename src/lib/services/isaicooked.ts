@@ -1,26 +1,32 @@
 "use server";
 
 import { generateObject } from "ai";
+import { google } from "@ai-sdk/google";
 import { promptAnalysis, promptSearchKeywords } from "@/src/lib/prompts";
 import { exaSearch, ExaSearchSchema } from "@/src/lib/services/exa";
 import z from "zod";
 
 export const isAiCooked = async () => {
+  const model = google("gemini-2.5-flash");
   const { object: keywords } = await generateObject({
-    model: "openai/gpt-5",
+    model,
     prompt: promptSearchKeywords,
     schema: ExaSearchSchema,
     output: "array",
   });
 
+  console.log("keywords", JSON.stringify(keywords, null, 2));
+
   const searchResults = await exaSearch({
     searches: keywords,
   });
 
+  console.log("searchResults", JSON.stringify(searchResults, null, 2));
+
   const analysisPrompt = promptAnalysis(searchResults);
 
   const { object: analysis } = await generateObject({
-    model: "openai/gpt-5",
+    model,
     prompt: analysisPrompt,
     schema: z.object({
       isCookedScore: z
@@ -33,6 +39,7 @@ export const isAiCooked = async () => {
   });
 
   // TODO store in db
+  console.log("analysis", JSON.stringify(analysis, null, 2));
 
   return analysis;
 };

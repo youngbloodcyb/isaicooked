@@ -22,7 +22,9 @@ Also provide a reasoning for your score.
 
 We are looking to take a pulse check on various industry leaders and capital allocators to determine a belief of whether the investments being made into AI are overblown or not.
 
-Our thesis is once major AI providers (OpenAI, Anthropic, Google) and their leadership (Sam Altman, Dario Amodei, Sundar Pichai) begin to speak more and more about the profitablility of thier models, we are bullish on the future of AI.
+The key signal we are looking for is when major AI providers speak more on profitability of thier models rather than state of the art model capabilities, or AGI artificial general intelligence.
+
+Our thesis is once major AI providers (OpenAI, Anthropic, Google) and their leadership (Sam Altman, Dario Amodei, Sundar Pichai) begin to speak more and more about the profitablility of their models and their businesses, we would say AI is cooked.
 
 <search-results>
 ${searchResults

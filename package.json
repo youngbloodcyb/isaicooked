@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ai-sdk/google": "^2.0.28",
     "ai": "^5.0.89",
     "drizzle-orm": "^0.44.7",
     "exa-js": "^2.0.0",
